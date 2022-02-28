@@ -1,0 +1,29 @@
+---
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Example configuration.yaml entry
+switch:
+  - platform: mqtt
+    unique_id: mqtt_lamp_switch
+    name: "lamp"
+    device:
+        name: mqtt_lamp
+        identifiers:
+            - 23244ebc1f8c7c8e054185996f899131
+    state_topic: "etty/lamp"
+    command_topic: "etty/lamp"
+    payload_on: "1"
+    payload_off: "0"
+    state_on: "1"
+    state_off: "0"
+    qos: 0
+    retain: true
