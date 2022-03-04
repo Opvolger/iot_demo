@@ -27,3 +27,9 @@ switch:
     state_off: "0"
     qos: 0
     retain: true
+
+sensor:
+  - platform: mqtt
+    unique_id: etty_temp_switch
+    name: "temp"
+    state_topic: "etty/temp"

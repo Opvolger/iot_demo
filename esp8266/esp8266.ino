@@ -12,13 +12,13 @@ void callback(char* topic, byte* payload, unsigned int length);
 const int pin_led = 2;
 const int pin_relay = 0;
 
-#define MQTT_SERVER "192.168.2.22"
+#define MQTT_SERVER "192.168.8.99"
 #define MQTT_PORT 1883
 const char* mqtt_username = "etty";
 const char* mqtt_password = "wachtwoord";
 
-const char* ssid = "opvolger_draadloos_zolder";
-const char* wifi_password = "**********";
+const char* ssid = "etty";
+const char* wifi_password = "demodemo";
 const char* topic_switch = "etty/lamp";
 
 unsigned long previousMillis = 0;

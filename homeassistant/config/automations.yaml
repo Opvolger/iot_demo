@@ -1,1 +1,26 @@
-[]
+- id: '1646341561756'
+  alias: Licht aan als temp boven 30 graden
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ (states.sensor.temp.state|float) > 30 }}'
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: etty/lamp
+      payload: '1'
+  mode: single
+- id: '1646342138172'
+  alias: Licht uit als temp onder 30 graden
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ (states.sensor.temp.state|float) < 30 }}'
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: etty/lamp
+      payload: '0'
+  mode: single
